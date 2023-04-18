@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = {
+  env: {
+    customKey: "AIzaSyA531AQoAidP5aRGiGI6J6BG1tcyAoa8g0",
+    customId: "UCMiJRAwDNSNzuYeN2uWa0pA",
+  },
+};
