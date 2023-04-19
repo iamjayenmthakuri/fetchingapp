@@ -3,16 +3,20 @@ import useFetch from "@/components/useFetch";
 import Items from "@/pages/playlists";
 import Router from "next/router";
 import { useEffect } from "react";
-import styles from "../styles/loginpage.module.css";
+import { useRouter } from "next/router";
 
-export default function Mapping() {
+export default function Homepage() {
+  const router = useRouter();
   const [token, setToken] = useState("");
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
-    setToken(storedToken);
-  }, []);
-  console.log(token, "key");
+    if (!storedToken) {
+      router.push("/");
+    } else {
+      setToken(storedToken);
+    }
+  }, [router]);
 
   const { playlistId } = useState(null);
 
