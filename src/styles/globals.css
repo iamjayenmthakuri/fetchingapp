@@ -192,16 +192,16 @@ body {
   height: 80px;
 }
 .loading:after {
-  content: "wait";
-  display: block;
-  border-radius: 50%;
-  width: 0;
-  height: 0;
+  content: " ";
+  display:block;
+  border-radius: 90%;
+  width: 10px;
+  height: 10px;
   margin: 8px;
   box-sizing: border-box;
-  border: 32px solid #58319f;
-  border-color: #7c2424 transparent #2ea0bf transparent;
-  animation: lds-hourglass 1.2s infinite;
+  border: 22px solid #0d0dc6;
+  border-color: #1871ca transparent #12a6d7 transparent;
+  animation: lds-hourglass 0.1s infinite;
 }
 @keyframes lds-hourglass {
   0% {
