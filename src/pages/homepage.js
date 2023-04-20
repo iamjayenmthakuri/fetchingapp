@@ -31,8 +31,11 @@ export default function Homepage() {
     return (
       <div className="error">
         {error}:<br></br>
-        <span> Something Went Wrong. TRY AGAIN!!!</span>
-        <a href="http://localhost:3000/">Click Here :http://localhost:3000/ </a>
+        <span className="spans">You are not LoggedIn Click Here :</span>
+        <a href="http://localhost:3000/">
+          {" "}
+          <span className="span">Login Page</span>
+        </a>
       </div>
     );
   }
@@ -51,7 +54,11 @@ export default function Homepage() {
   };
   return (
     <div>
-      {token && <h1 className="h1">Your token is: {token}</h1>}
+      {token && (
+        <h1 className="h1">
+          You are loggedIn with token id: <span className="span">{token}</span>
+        </h1>
+      )}
       <button className="button" onClick={handleLogout}>
         Logout
       </button>

@@ -22,8 +22,11 @@ const Items = (props) => {
     return (
       <div className="error">
         {error}:<br></br>
-        <span> Something Went Wrong. TRY AGAIN!!!</span>
-        <a href="http://localhost:3000/">Click Here :http://localhost:3000/ </a>
+        <span className="spans">You are not LoggedIn Click Here :</span>
+        <a href="http://localhost:3000/">
+          {" "}
+          <span className="span">Login Page</span>
+        </a>
       </div>
     );
   }

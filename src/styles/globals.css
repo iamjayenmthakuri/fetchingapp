@@ -157,6 +157,12 @@ body {
   align-items: center;
   margin-left: 10px;
 }
+.error .spans{
+  color: #615f71;
+  font-size: large;
+  font-weight: bold;
+}
+
 .error {
   font-size: 40px;
   font-weight: bold;
@@ -166,12 +172,15 @@ body {
   margin-top: 200px;
   margin-left: 260px;
 }
-.error span {
-  color: black;
+.error .span {
+  color: rgb(13, 13, 237);
   text-shadow: 2px 1px #d8c2c2;
   font-style: italic;
   font-size: large;
   padding: 20px;
+  font-size: 25px;
+  text-decoration: underline;
+
 }
 .error a {
   font-size: 18px;
