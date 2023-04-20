@@ -3,9 +3,9 @@ import useFetch from "@/components/useFetch";
 
 const Items = (props) => {
   const { playlistId } = props;
-  const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${playlistId}&key=${process.env.customKey}`;
+  const url = `${process.env.youtubeLink}playlistItems?part=snippet&maxResults=20&playlistId=${playlistId}&key=${process.env.customKey}`;
   const [detail, setDetail] = useState();
-  const handleClick = (id) => {
+  const viewDetail = (id) => {
     if (detail === id) {
       setDetail(null);
     } else {
@@ -23,7 +23,7 @@ const Items = (props) => {
       <div className="error">
         {error}:<br></br>
         <span className="spans">You are not LoggedIn Click Here :</span>
-        <a href="http://localhost:3000/">
+        <a href={`${process.env.baseurl}`}>
           {" "}
           <span className="span">Login Page</span>
         </a>
@@ -42,7 +42,7 @@ const Items = (props) => {
               height: detail === item?.etag ? "auto" : "300px",
               width: detail === item?.etag ? "400px" : "auto",
             }}
-            onClick={() => handleClick(item.etag)}
+            onClick={() => viewDetail(item.etag)}
           >
             {/* <img
               src={item.snippet.thumbnails.high.url}

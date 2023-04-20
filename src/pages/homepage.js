@@ -21,7 +21,7 @@ export default function Homepage() {
   const { playlistId } = useState(null);
 
   const { data, isPending, error } = useFetch(
-    `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${process.env.customId}&maxResults=20&key=${process.env.customKey}`
+    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=20&key=${process.env.customKey}`
   );
   if (isPending) {
     return <div className="loading"></div>;
@@ -32,16 +32,15 @@ export default function Homepage() {
       <div className="error">
         {error}:<br></br>
         <span className="spans">You are not LoggedIn Click Here :</span>
-        <a href="http://localhost:3000/">
+        <a href={`${process.envbaseurl}`}>
           {" "}
           <span className="span">Login Page</span>
         </a>
       </div>
     );
   }
-  const handleClick = (id, title) => {
+  const ViewVideos = (id, title) => {
     // setPlaylistId(id);
-    console.log(data);
     Router.push({
       pathname: `playlists/${id}`,
       query: { title },
@@ -76,7 +75,7 @@ export default function Homepage() {
                 <div
                   key={item.id}
                   className="playlist-card"
-                  onClick={() => handleClick(item.id, item.snippet.title)}
+                  onClick={() => ViewVideos(item.id, item.snippet.title)}
                 >
                   <img
                     src={item.snippet.thumbnails.high.url}

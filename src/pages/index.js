@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/loginpage.module.css";
 
@@ -6,6 +6,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -29,9 +30,14 @@ const LoginPage = () => {
     const token = Math.random().toString(36).substr(2);
 
     localStorage.setItem("token", token);
-
     router.push("/homepage");
   };
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      router.push("/homepage");
+    }
+  }, [router]);
 
   return (
     <div className={styles.container}>
