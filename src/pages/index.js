@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/loginpage.module.css";
 
 const LoginPage = () => {
@@ -40,38 +42,71 @@ const LoginPage = () => {
   }, [router]);
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleLogin} className={styles.form}>
-        <h1 className={styles.h1}>Login </h1>
+    <>
+      <Head>
+        <title>Login Page</title>
+        <meta name="description" content="Login in with our App" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <section className={styles.loginsection}>
         <div>
-          <label className={styles.label} htmlFor="email">
-            Email:
-          </label>
-          <input
-            className={styles.input}
-            type="email"
-            id="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
+          <div>
+            <h1 className={styles.heading}>Login</h1>
+            <p className={styles.description}>
+              Please fill and submit to login{" "}
+            </p>
+          </div>
+          <form onSubmit={handleLogin} className={styles.form}>
+            <div className={styles.formLogin}>
+              <label htmlFor="email">
+                Email or Phone number
+                <input
+                  type="text"
+                  id="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </label>
+              <label htmlFor="password">
+                password{" "}
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </label>
+            </div>
+          </form>
+          <div className={styles.rem}>
+            <div>
+              <input type="checkbox" className={styles.checkbox} />
+              <span>Remember me</span>{" "}
+            </div>
+            <div>
+              <Link href="/forget" legacyBehavior>
+                <a className={styles.link}>Forgot Password?</a>
+              </Link>
+            </div>
+          </div>
+          <div className={styles.mainbutton}>
+            <button
+              className={styles.loginButton}
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Login{" "}
+            </button>
+          </div>
+          <div className={styles.loginreference}>
+            Don't have an account?
+            <Link href="/signup" legacyBehavior>
+              <a className={styles.register}>Register</a>
+            </Link>
+          </div>
         </div>
-        <div>
-          <label className={styles.label} htmlFor="password">
-            Password:
-          </label>
-          <input
-            className={styles.input}
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </div>
-        <button className={styles.button} type="submit" onClick={handleSubmit}>
-          Log in
-        </button>
-      </form>
-    </div>
+      </section>
+    </>
   );
 };
 

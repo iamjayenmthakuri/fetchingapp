@@ -1,59 +1,188 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #c0c5c5;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .h1 {
-    margin-bottom: 20px;
-    font-size: 30px;
-    font-weight: 600;
-    color: rgb(17, 0, 255);
-  }
-  
-  .label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: 1px solid #1074a9;
-    border-radius: 5px;
-    background-color: #f5f6f7;
-  }
-  
-  .button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #06303b;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .button:hover {
-    background-color: #088222;
-  }
-  
+.section,
+.loginsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 29.7568px;
+  letter-spacing: -0.02em;
+  color: #1d1d1d;
+}
+.description {
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 12px;
+  margin-top: -28px;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+}
+.formDiv,
+.formLogin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35.75px;
+}
+
+.form label {
+  display: grid;
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+}
+.form label span {
+  font-size: 9px;
+  display: flex;
+}
+.form input {
+  width: 252.6px;
+  height: 33.87px;
+  border-radius: 3.52799px;
+  border: 0.705598px solid #d1d1d1;
+}
+.rem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+.rem input,
+.terms input {
+  box-sizing: border-box;
+  width: 15.11px;
+  height: 45.11px;
+  border: 0.705598px solid #d1d1d1;
+  border-radius: 1.4112px;
+}
+.rem div,
+.terms div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+  margin-top: 20px;
+}
+
+.rem span,
+.terms p {
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 12.87838px;
+  margin-left: 5px;
+}
+.rem div,
+.terms p {
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 12.87838px;
+  text-align: right;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+  margin-top: 10px;
+}
+.terms {
+  letter-spacing: -0.02em;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.rem a,
+.terms a {
+  color: #007aff;
+  text-decoration: none;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+}
+.createButton {
+  height: 33.87px;
+  width: 252.6px;
+  border: none;
+  background: #007aff;
+  border-radius: 3.52799px;
+  font-size: 13px;
+  color: #ffffff;
+}
+.googleButton {
+  height: 33.87px;
+  width: 252.6px;
+  border: none;
+  background: #2d3748;
+  border-radius: 3.52799px;
+  font-size: 13px;
+  color: #ffffff;
+}
+.reference {
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 12.87838px;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reference a {
+  color: #007aff;
+  text-decoration: underline;
+  margin-left: 0.2rem;
+}
+/* login */
+.loginsection {
+  margin-top: 100px;
+}
+
+.rem .checkbox {
+  box-sizing: border-box;
+  width: 12.11px;
+  height: 12.11px;
+  border: 0.705598px solid #d1d1d1;
+  border-radius: 1.4112px;
+}
+.formLogin {
+  flex-direction: column;
+  justify-content: right;
+}
+.link {
+  font-size: 12px;
+}
+.mainbutton {
+  margin-top: 1rem;
+}
+.loginButton {
+  height: 33.87px;
+  width: 252.6px;
+  border: none;
+  background: #007aff;
+  border-radius: 3.52799px;
+  font-size: 13px;
+  color: #ffffff;
+}
+.register {
+  color: #007aff;
+  text-decoration: underline;
+  font-size: 10px;
+  margin-left: 0.2rem;
+}
+.loginreference {
+  font-style: normal;
+  font-weight: 400px;
+  font-size: 10.87838px;
+  letter-spacing: -0.02em;
+  color: #2d3748;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
