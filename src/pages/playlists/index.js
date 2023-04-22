@@ -1,9 +1,17 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import useFetch from "@/components/useFetch";
+import styles from "../playlists/playlist.module.css";
 
 const Items = (props) => {
-  const { playlistId } = props;
-  const url = `${process.env.youtubeLink}playlistItems?part=snippet&maxResults=20&playlistId=${playlistId}&key=${process.env.customKey}`;
+  const router = useRouter();
+
+  const handlePrevious = () => {
+    router.push("/homepage");
+  };
+
+  const { playlistId, title } = props;
+  const url = `${process.env.youtubeLink}playlistItems?part=snippet&maxResults=6&playlistId=${playlistId}&key=${process.env.customKey}`;
   const [detail, setDetail] = useState();
   const viewDetail = (id) => {
     if (detail === id) {
@@ -12,76 +20,87 @@ const Items = (props) => {
       setDetail(id);
     }
   };
+  const [hide, setHide] = useState(false);
   const { data, isPending, error } = useFetch(url);
 
   if (isPending) {
-    return <div className="loading"></div>;
+    return <div className={styles.loading}></div>;
   }
 
   if (error) {
     return (
-      <div className="error">
+      <div className={styles.error}>
         {error}:<br></br>
-        <span className="spans">You are not LoggedIn Click Here :</span>
+        <span className={styles.spans}>You are not LoggedIn Click Here :</span>
         <a href={`${process.env.baseurl}`}>
           {" "}
-          <span className="span">Login Page</span>
+          <span className={styles.span}>Login Page</span>
         </a>
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="playlist-grid">
-        {data.map((item) => (
-          <div
-            key={item.id}
-            className="playlist-cards"
-            style={{
-              height: detail === item?.etag ? "auto" : "300px",
-              width: detail === item?.etag ? "400px" : "auto",
-            }}
-            onClick={() => viewDetail(item.etag)}
-          >
-            {/* <img
-              src={item.snippet.thumbnails.high.url}
-              alt={item.snippet.title}
-              className="thumbnail"
-            /> */}
-            <div className="info">
-              {detail !== item?.etag ? (
-                <>
-                  <img
-                    src={item.snippet.thumbnails.high.url}
-                    alt={item.snippet.title}
-                    className="thumbnail"
-                  />
-                </>
-              ) : (
-                <>
-                  <img
-                    src={item.snippet.thumbnails.high.url}
-                    alt={item.snippet.title}
-                    className="thumbnails"
-                  />
-                  <h2 className="title">{item.snippet.title}</h2>
-                  <p className="author">Author:{item.snippet.channelTitle}</p>
-                  <p className="publishedDate">
-                    Published Date:{item.snippet.publishedAt}
-                  </p>
-                  <p className="description">
-                    <span>Description:</span>
-                    <br></br>
-                    {item.snippet.description}
-                  </p>
-                </>
-              )}
-            </div>
+    <main>
+      <div className={styles.wrapper}>
+        <div className={styles.heading}>
+          <h1>{title}</h1>
+          <p>
+            This are the videos of {title}, playlist that you have selected from
+            Home page
+          </p>
+          <div className={styles.nav}>
+            {" "}
+            <button onClick={handlePrevious} className="button">
+              Back to Main Page
+            </button>
           </div>
-        ))}
+        </div>
+        <div className={styles.playlistsWrapper}>
+          {data.map((item) => (
+            <div
+              className={styles.playlists}
+              key={item.id}
+              onClick={() => viewDetail(item.etag)}
+            >
+              <div>
+                {detail !== item?.etag ? (
+                  <div className={styles.playlist}>
+                    <p>{item.snippet.title}</p>
+                    <img
+                      src={item.snippet.thumbnails.high.url}
+                      alt={item.snippet.title}
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <div className={styles.play}>
+                      <img
+                        src={item.snippet.thumbnails.high.url}
+                        alt={item.snippet.title}
+                        className={styles.thumbnails}
+                      />
+                      <h2 className={styles.title}>{item.snippet.title}</h2>
+                      <h4 className={styles.author}>
+                        Author:{item.snippet.channelTitle}
+                      </h4>
+                      <p className={styles.publishedDate}>
+                        Published Date:{item.snippet.publishedAt}
+                      </p>
+                      <h3 className={styles.description}>
+                        <span>Description:</span>
+                        <br></br>
+                        {item.snippet.description}
+                      </h3>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

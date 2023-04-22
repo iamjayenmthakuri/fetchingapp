@@ -4,6 +4,7 @@ import Items from "@/pages/playlists";
 import Router from "next/router";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "../styles/homepage.module.css";
 
 export default function Homepage() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function Homepage() {
   const { playlistId } = useState(null);
 
   const { data, isPending, error } = useFetch(
-    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=20&key=${process.env.customKey}`
+    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=6&key=${process.env.customKey}`
   );
   if (isPending) {
     return <div className="loading"></div>;
@@ -39,8 +40,7 @@ export default function Homepage() {
       </div>
     );
   }
-  const ViewVideos = (id, title) => {
-    // setPlaylistId(id);
+  const ViewPlaylist = (id, title) => {
     Router.push({
       pathname: `playlists/${id}`,
       query: { title },
@@ -52,47 +52,41 @@ export default function Homepage() {
     window.location.href = "/";
   };
   return (
-    <div>
-      {token && (
-        <h1 className="h1">
-          You are loggedIn with token id: <span className="span">{token}</span>
-        </h1>
-      )}
-      <button className="button" onClick={handleLogout}>
-        Logout
-      </button>
-      <div className="playlist-heading-container">
-        <h1 className="my-playlist-heading">
-          Youtube <span>Playlist</span>
-        </h1>
+    <main className={styles.container}>
+      <div className={styles.wrapper}>
+        <div className={styles.heading}>
+          <h1>Welcome to Youtube Playlist</h1>
+          <p>
+            This are the playlist of Mr.Arun Maini, the UK youtuber from his
+            channel MR.whosetheboss.
+          </p>
+          <div className={styles.nav}>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        </div>
         {playlistId ? (
           playlistId && <Items playlistId={playlistId} />
         ) : (
-          <div className="main">
-            {" "}
-            <div className="playlist-grid">
-              {data.map((item) => (
-                <div
-                  key={item.id}
-                  className="playlist-card"
-                  onClick={() => ViewVideos(item.id, item.snippet.title)}
-                >
+          <div className={styles.playlistsWrapper}>
+            {data.map((item) => (
+              <div
+                className={styles.playlists}
+                key={item.id}
+                onClick={() => ViewPlaylist(item.id, item.snippet.title)}
+              >
+                {" "}
+                <div className={styles.playlist}>
+                  <p>{item.snippet.title}</p>
                   <img
                     src={item.snippet.thumbnails.high.url}
                     alt={item.snippet.title}
-                    className="thumbnail"
                   />
-                  <div className="info">
-                    <h2 className="title">{item.snippet.title}</h2>
-                    {/* <Playlist title={item.snippet.title} /> */}
-                    {/* <p className="description">{item.snippet.description}</p> */}
-                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }

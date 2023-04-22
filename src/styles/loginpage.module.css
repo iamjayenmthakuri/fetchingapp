@@ -10,7 +10,7 @@
   font-weight: 600;
   font-size: 29.7568px;
   letter-spacing: -0.02em;
-  color: #1d1d1d;
+  color: #394141;
 }
 .description {
   font-style: normal;
@@ -18,7 +18,8 @@
   font-size: 12px;
   margin-top: -28px;
   letter-spacing: -0.02em;
-  color: #2d3748;
+  color: #394141;
+  margin-top: 0.5px;
 }
 .formDiv,
 .formLogin {
@@ -45,7 +46,9 @@
   width: 252.6px;
   height: 33.87px;
   border-radius: 3.52799px;
-  border: 0.705598px solid #d1d1d1;
+  border: 0.705598px solid #b6cdb8;
+  background-color: #f8eeeed1;
+  padding-left: 4px;
 }
 .rem {
   display: flex;
@@ -67,7 +70,7 @@
   align-items: center;
   justify-content: center;
   letter-spacing: -0.02em;
-  color: #2d3748;
+  color: #394141;
   margin-top: 20px;
 }
 
@@ -97,31 +100,14 @@
 
 .rem a,
 .terms a {
-  color: #007aff;
+  color: #1e059d;
   text-decoration: none;
 }
 .button {
   display: flex;
   justify-content: space-between;
 }
-.createButton {
-  height: 33.87px;
-  width: 252.6px;
-  border: none;
-  background: #007aff;
-  border-radius: 3.52799px;
-  font-size: 13px;
-  color: #ffffff;
-}
-.googleButton {
-  height: 33.87px;
-  width: 252.6px;
-  border: none;
-  background: #2d3748;
-  border-radius: 3.52799px;
-  font-size: 13px;
-  color: #ffffff;
-}
+
 .reference {
   font-style: normal;
   font-weight: 400px;
@@ -134,7 +120,7 @@
   align-items: center;
 }
 .reference a {
-  color: #007aff;
+  color: #233445;
   text-decoration: underline;
   margin-left: 0.2rem;
 }
@@ -147,8 +133,9 @@
   box-sizing: border-box;
   width: 12.11px;
   height: 12.11px;
-  border: 0.705598px solid #d1d1d1;
+  border: 0.705598px solid #a48181e5;
   border-radius: 1.4112px;
+  accent-color: #858a84;
 }
 .formLogin {
   flex-direction: column;
@@ -167,10 +154,12 @@
   background: #007aff;
   border-radius: 3.52799px;
   font-size: 13px;
-  color: #ffffff;
+  color: #edf1f1;
+  background: #858a84;
+  cursor: pointer;
 }
 .register {
-  color: #007aff;
+  color: #0c64bc;
   text-decoration: underline;
   font-size: 10px;
   margin-left: 0.2rem;
@@ -180,7 +169,7 @@
   font-weight: 400px;
   font-size: 10.87838px;
   letter-spacing: -0.02em;
-  color: #2d3748;
+  color: #394141;
   margin-top: 20px;
   display: flex;
   justify-content: center;

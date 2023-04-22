@@ -49,7 +49,7 @@ const LoginPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <section className={styles.loginsection}>
-        <div>
+        <div className={styles.wrapper}>
           <div>
             <h1 className={styles.heading}>Login</h1>
             <p className={styles.description}>
