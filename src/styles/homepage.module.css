@@ -6,8 +6,12 @@
   border-radius: 3.52799px;
   font-size: 13px;
   color: #e3e8e8;
-  background: #858a84;
+  background: #023c86;
   margin-top: 10%;
+  cursor: pointer;
+}
+.nav > button:hover {
+  background: #c95858;
 }
 .wrapper {
   display: flex;
@@ -27,6 +31,10 @@
   display: grid;
   align-items: center;
   justify-content: end;
+}
+.playlist :hover {
+  transform: translate(0.01rem);
+  background-color: rgb(8, 74, 107);
 }
 
 .playlist img {
@@ -49,6 +57,7 @@
   font-size: 1rem;
   margin-left: 23px;
   position: absolute;
-  margin-top: 18px;
+  margin-top: 19px;
   color: aliceblue;
+  background-color: black;
 }

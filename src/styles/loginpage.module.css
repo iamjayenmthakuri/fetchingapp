@@ -32,11 +32,11 @@
 .form label {
   display: grid;
   font-style: normal;
-  font-weight: 400px;
+  font-weight: 500px;
   font-size: 13px;
   line-height: 20px;
   letter-spacing: -0.02em;
-  color: #2d3748;
+  color: #25282d;
 }
 .form label span {
   font-size: 9px;
@@ -46,8 +46,8 @@
   width: 252.6px;
   height: 33.87px;
   border-radius: 3.52799px;
-  border: 0.705598px solid #b6cdb8;
-  background-color: #f8eeeed1;
+  border: 0.705598px solid #ccd2cc;
+  background-color: #eee9e9d1;
   padding-left: 4px;
 }
 .rem {
@@ -155,8 +155,14 @@
   border-radius: 3.52799px;
   font-size: 13px;
   color: #edf1f1;
-  background: #858a84;
+  background: #023c86;
   cursor: pointer;
+}
+.loginButton:hover {
+  background: #115304;
+}
+.loginButton:active {
+  background-color: green;
 }
 .register {
   color: #0c64bc;

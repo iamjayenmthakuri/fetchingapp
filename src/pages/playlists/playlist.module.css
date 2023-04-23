@@ -2,12 +2,14 @@
   height: 33.87px;
   width: 152.6px;
   border: none;
-  background: #007aff;
   border-radius: 3.52799px;
   font-size: 13px;
   color: #e3e8e8;
-  background: #858a84;
+  background: #023c86;
   margin-top: 10%;
+}
+.nav > button:hover {
+  background: #c95858;
 }
 .wrapper {
   display: flex;
@@ -15,6 +17,7 @@
   justify-content: space-around;
   height: 100vh;
   margin-left: 4%;
+  overflow: hidden;
 }
 .playlistsWrapper {
   flex-wrap: wrap;
@@ -27,6 +30,10 @@
   display: grid;
   align-items: center;
   justify-content: end;
+}
+.playlist :hover {
+  transform: translate(0.01rem);
+  background-color: rgb(8, 74, 107);
 }
 
 .playlist img {
@@ -51,4 +58,51 @@
   position: absolute;
   margin-top: 26px;
   color: aliceblue;
+  background-color: black;
+}
+.videoDetail {
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+.detailImage {
+  width: 400px;
+  height: 340px;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  object-fit: contain;
+  background-color: rgb(230, 224, 224);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 8px;
+}
+.detailTitle {
+  width: 383px;
+  font-size: 1rem;
+  padding: 5px;
+  margin-left: 18.9px;
+  position: absolute;
+  margin-top: 19px;
+  color: rgb(1, 15, 21);
+  background-color: rgb(230, 224, 224);
+}
+.videoDetail .description {
+  font-size: 9px;
+  opacity: 0.8;
+  width: 90%;
+}
+
+.author {
+  text-decoration: underline;
+  font-style: italic;
+  word-spacing: 3px;
+}
+.author span,
+.description span {
+  font-size: 15px;
+}
+.publishedDate {
+  font-size: small;
 }
