@@ -16,8 +16,9 @@ export default function Homepage() {
 
   const handleInputChange = (event) => {
     event.preventDefault();
-    if (setSearch(event.target.value)) {
-      setSuggestions(null);
+    setSearch(event.target.value);
+    if (event.target.value === "") {
+      setSuggestions([]);
     } else {
       setSuggestions(
         data.filter((item) =>
@@ -106,9 +107,7 @@ export default function Homepage() {
                 key={item.id}
                 onClick={() => ViewPlaylist(item.id, item.snippet.title)}
               >
-                <div className={styles.suggestTitle}>
-                  <span>{item.snippet.title}</span>
-                </div>
+                <span>{item.snippet.title}</span>
               </li>
             ))}
           </ul>

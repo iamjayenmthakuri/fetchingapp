@@ -79,17 +79,20 @@
   color: aliceblue;
   background-color: black;
 }
-.suggestTitle {
+.suggestions {
   display: grid;
   grid-template-columns: auto;
   margin-left: 20px;
   place-items: center;
-  width: 150px;
-  font-size: 12px;
-  color: #e7eded;
+  width: max-content;
+  font-size: 10px;
+  color: #011010;
   cursor: pointer;
+  background-color: #ccc;
+  border: none;
+  list-style-type: none;
 }
-.suggestTitle span {
-  background-color: #5b5d5d;
-  width: 150px;
+.suggestions span {
+  background-color: #ccc;
+  font-size: 20px;
 }
