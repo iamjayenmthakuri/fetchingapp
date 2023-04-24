@@ -10,7 +10,8 @@ import styles from "../styles/homepage.module.css";
 export default function Homepage() {
   const router = useRouter();
   const [token, setToken] = useState("");
-  const [search, setSearch] = useState(" ");
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -26,6 +27,17 @@ export default function Homepage() {
   const { data, isPending, error } = useFetch(
     `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=6&key=${process.env.customKey}`
   );
+
+  useEffect(() => {
+    if (data) {
+      setFilteredData(
+        data.filter((item) =>
+          item.snippet.title.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
+  }, [data, search]);
+
   if (isPending) {
     return <div className="loading"></div>;
   }
@@ -42,6 +54,7 @@ export default function Homepage() {
       </div>
     );
   }
+
   const ViewPlaylist = (id, title) => {
     localStorage.setItem("playlistId", id);
     Router.push({
@@ -54,6 +67,7 @@ export default function Homepage() {
     console.log(token, "remove");
     window.location.href = "/";
   };
+
   return (
     <>
       <Head>
@@ -62,15 +76,14 @@ export default function Homepage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.container}>
-        <input
-          type="text"
-          placeholder="Search for a playlist"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        {/* {data.filter((map) =>
-          item.snippet.title.tolowercase().includes(search.toLowerCase())
-        )} */}
+        <div className={styles.searchBar}>
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
         <div className={styles.wrapper}>
           <div className={styles.heading}>
             <h1>Welcome to Youtube Playlist</h1>
@@ -86,7 +99,7 @@ export default function Homepage() {
             playlistId && <Items playlistId={playlistId} />
           ) : (
             <div className={styles.playlistsWrapper}>
-              {data.map((item) => (
+              {filteredData.map((item) => (
                 <div
                   className={styles.playlists}
                   key={item.id}

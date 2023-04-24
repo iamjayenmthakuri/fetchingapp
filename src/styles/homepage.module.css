@@ -13,6 +13,19 @@
 .nav > button:hover {
   background: #c95858;
 }
+.searchBar input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px black;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 16px;
+  width: 250px;
+  border-radius: 3.52799px;
+  border: 0.705598px solid #349a34;
+  background-color: #f4f2f2d1;
+  padding-left: 4px;
+}
 .wrapper {
   display: flex;
   align-items: center;
@@ -23,7 +36,7 @@
 .playlistsWrapper {
   flex-wrap: wrap;
   display: flex;
-  margin-top: 5%;
+  margin-bottom: 10%;
   margin-left: 15%;
 }
 

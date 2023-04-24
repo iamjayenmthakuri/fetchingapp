@@ -21,8 +21,7 @@ const Items = (props) => {
       setDetail(id);
       setHide(!hide);
     } else if (detail === id) {
-      setHide(null);
-      setDetail(id);
+      setHide(false);
     }
   };
   const { data, isPending, error } = useFetch(url);
