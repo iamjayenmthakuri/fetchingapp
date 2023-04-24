@@ -6,10 +6,22 @@
   font-size: 13px;
   color: #e3e8e8;
   background: #023c86;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .nav > button:hover {
   background: #c95858;
+}
+.heading {
+  height: 250px;
+  width: 590px;
+}
+.heading h1 {
+  word-spacing: -3px;
+  margin-top: 20px;
+}
+.heading p {
+  word-spacing: 2px;
+  margin-top: 2%;
 }
 .wrapper {
   display: flex;
@@ -21,6 +33,7 @@
 }
 .playlistsWrapper {
   flex-wrap: wrap;
+
   display: flex;
   margin-top: 5%;
   margin-left: 15%;
@@ -70,7 +83,7 @@
   height: 340px;
   display: inline-block;
   box-sizing: border-box;
-  cursor: pointer;
+
   object-fit: contain;
   background-color: rgb(230, 224, 224);
   border: 1px solid #ccc;
