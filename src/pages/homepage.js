@@ -42,7 +42,7 @@ export default function Homepage() {
   const { playlistId } = useState(null);
 
   const { data, isPending, error } = useFetch(
-    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=6&key=${process.env.customKey}`
+    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=50&key=${process.env.customKey}`
   );
 
   useEffect(() => {
