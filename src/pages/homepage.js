@@ -12,6 +12,22 @@ export default function Homepage() {
   const [token, setToken] = useState("");
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
+
+  const handleInputChange = (event) => {
+    event.preventDefault();
+    if (setSearch(event.target.value)) {
+      setSuggestions(null);
+    } else {
+      setSuggestions(
+        data.filter((item) =>
+          item.snippet.title
+            .toLowerCase()
+            .includes(event.target.value.toLowerCase())
+        )
+      );
+    }
+  };
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -75,14 +91,27 @@ export default function Homepage() {
         <meta name="description" content="Login in with our App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <div></div>
       <main className={styles.container}>
         <div className={styles.searchBar}>
           <input
             type="text"
             placeholder="Search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleInputChange}
           />
+          <ul className={styles.suggestions}>
+            {suggestions.map((item) => (
+              <li
+                key={item.id}
+                onClick={() => ViewPlaylist(item.id, item.snippet.title)}
+              >
+                <div className={styles.suggestTitle}>
+                  <span>{item.snippet.title}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={styles.wrapper}>
           <div className={styles.heading}>
