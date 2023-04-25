@@ -56,7 +56,7 @@
   transition: all 0.5s ease-in;
 }
 .darkMode:checked {
-  background: #03ffc0;
+  background: #f0f6f4;
 }
 .darkMode:checked::before {
   background: #333;
