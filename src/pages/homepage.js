@@ -99,9 +99,17 @@ export default function Homepage() {
       </Head>
       <main
         className={styles.container}
-        style={{ backgroundColor: isDarkModeEnabaled ? " #434141" : "white" }}
+        style={{
+          backgroundColor: isDarkModeEnabaled ? "#2a2a2a" : "#A9A9A9",
+        }}
       >
-        <div className={styles.searchBar}>
+        <div></div>
+        <div
+          className={styles.searchBar}
+          style={{
+            backgroundColor: isDarkModeEnabaled ? "#A9A9A9" : "#2a2a2a",
+          }}
+        >
           <div>
             <input
               className={styles.handleChange}
@@ -110,13 +118,24 @@ export default function Homepage() {
               value={search}
               onChange={handleInputChange}
             />
-            <ul className={styles.suggestions}>
+            <ul
+              className={styles.suggestions}
+              style={{
+                backgroundColor: isDarkModeEnabaled ? "#A9A9A9" : "#151515",
+              }}
+            >
               {suggestions.map((item) => (
                 <li
                   key={item.id}
                   onClick={() => ViewPlaylist(item.id, item.snippet.title)}
                 >
-                  <span>{item.snippet.title}</span>
+                  <span
+                    style={{
+                      color: isDarkModeEnabaled ? "black" : "white",
+                    }}
+                  >
+                    {item.snippet.title}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -131,7 +150,10 @@ export default function Homepage() {
           </div>
         </div>
         <div className={styles.wrapper}>
-          <div className={styles.heading}>
+          <div
+            className={styles.heading}
+            style={{ color: isDarkModeEnabaled ? "white" : "black" }}
+          >
             <h1>Welcome to Youtube Playlist</h1>
             <p>
               This are the playlist of Mr.Arun Maini, the UK youtuber from his

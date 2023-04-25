@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5.6%;
 }
 
 .darkMode {
@@ -88,7 +89,7 @@
 .playlistsWrapper {
   flex-wrap: wrap;
   display: flex;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   margin-left: 20%;
   overflow: hidden;
 }
@@ -133,15 +134,14 @@
   place-items: center;
   width: max-content;
   font-size: 10px;
-  color: #020a0a;
+  color: #edefef;
   cursor: pointer;
-  background-color: rgba(11, 1, 1, 0.1);
+
   border: none;
   list-style-type: none;
   position: absolute;
   opacity: 0.6;
 }
 .suggestions span {
-  background-color: rgba(11, 1, 1, 0.1);
   font-size: 15px;
 }

@@ -52,7 +52,10 @@ const Items = (props) => {
       style={{ backgroundColor: isDarkModeEnabaled ? " #434141" : "white" }}
     >
       <div className={styles.wrapper}>
-        <div className={styles.heading}>
+        <div
+          className={styles.heading}
+          style={{ color: isDarkModeEnabaled ? "white" : "black" }}
+        >
           <h1>{title}</h1>
           <p>
             This are the videos of {title}, playlist that you have selected from
@@ -90,7 +93,12 @@ const Items = (props) => {
                 ) : (
                   <>
                     {hide && (
-                      <div className={styles.videoDetail}>
+                      <div
+                        className={styles.videoDetail}
+                        style={{
+                          color: isDarkModeEnabaled ? "#D3D3D3	" : "black",
+                        }}
+                      >
                         <h1 className={styles.detailTitle}>
                           {item.snippet.title}
                         </h1>

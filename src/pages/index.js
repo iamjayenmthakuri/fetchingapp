@@ -4,6 +4,17 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/loginpage.module.css";
 
+// <iframe
+// src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.138380039662!2d85.30164137397479!3d27.68211762660648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c87db6e921%3A0x398a299e42c965!2sVarosa%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1682415519654!5m2!1sen!2snp"
+// frameborder="0"
+// width="400"
+// height="300"
+// style={{ border: 0 }}
+// allowFullScreen=""
+// loading="lazy"
+// referrerPolicy="no-referrer-when-downgrade"
+// ></iframe>
+
 const LoginPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");

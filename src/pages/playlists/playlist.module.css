@@ -57,8 +57,8 @@
   box-sizing: border-box;
   cursor: pointer;
   object-fit: cover;
-  background-color: #ede6e7;
-  border: 1px solid #ccc;
+  background-color: #9c9b9b;
+  border: 1px solid #9c9b9b;
   border-radius: 5px;
   margin: 10px;
   padding: 8px;
@@ -85,8 +85,8 @@
   box-sizing: border-box;
 
   object-fit: contain;
-  background-color: rgb(230, 224, 224);
-  border: 1px solid #ccc;
+  background-color: #9c9b9b;
+  border: 1px solid #9c9b9b;
   border-radius: 5px;
   margin: 10px;
   padding: 8px;
@@ -95,11 +95,11 @@
   width: 383px;
   font-size: 1rem;
   padding: 5px;
-  margin-left: 18.9px;
+  margin-left: 17.5px;
   position: absolute;
   margin-top: 19px;
   color: rgb(1, 15, 21);
-  background-color: rgb(230, 224, 224);
+  background-color: #9c9b9b;
 }
 .videoDetail .description {
   font-size: 9px;
