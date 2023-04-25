@@ -8,7 +8,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();

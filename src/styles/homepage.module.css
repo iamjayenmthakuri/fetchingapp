@@ -18,31 +18,78 @@
 .nav > button:hover {
   background: #c95858;
 }
-.searchBar input {
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.darkMode {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #333;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  z-index: 1;
+  accent-color: black;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.darkMode:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #eee;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in;
+}
+.darkMode:checked {
+  background: #03ffc0;
+}
+.darkMode:checked::before {
+  background: #333;
+  left: 32px;
+}
+.searchBar .handleChange {
   padding: 10px;
   border: none;
   border-radius: 5px black;
-  margin-top: 10px;
+  margin-bottom: 20px;
   margin-left: 20px;
+  margin-top: 2%;
   font-size: 16px;
   width: 250px;
   border-radius: 3.52799px;
   border: 0.705598px solid #349a34;
-  background-color: #f4f2f2d1;
+  background-color: #cecbcbd1;
   padding-left: 4px;
 }
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 100vh;
+  min-height: max-content;
   margin-left: 4%;
+}
+.heading {
+  margin-bottom: 400px;
 }
 .playlistsWrapper {
   flex-wrap: wrap;
   display: flex;
   margin-bottom: 10%;
-  margin-left: 15%;
+  margin-left: 20%;
   overflow: hidden;
 }
 
@@ -64,12 +111,11 @@
   box-sizing: border-box;
   cursor: pointer;
   object-fit: cover;
-  background-color: #ede6e7;
-  border: 1px solid #ccc;
+  background-color: #9c9b9b;
+  border: 1px solid #9c9b9b;
   border-radius: 5px;
   margin: 10px;
   padding: 8px;
-
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .playlist p {
@@ -87,13 +133,15 @@
   place-items: center;
   width: max-content;
   font-size: 10px;
-  color: #011010;
+  color: #020a0a;
   cursor: pointer;
-  background-color: #ccc;
+  background-color: rgba(11, 1, 1, 0.1);
   border: none;
   list-style-type: none;
+  position: absolute;
+  opacity: 0.6;
 }
 .suggestions span {
-  background-color: #ccc;
-  font-size: 20px;
+  background-color: rgba(11, 1, 1, 0.1);
+  font-size: 15px;
 }

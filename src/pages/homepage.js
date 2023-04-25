@@ -6,12 +6,17 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/homepage.module.css";
+import { darkModeState, toggleDarkModeState } from "@/components/gobalState";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export default function Homepage() {
+  const isDarkModeEnabaled = useRecoilValue(darkModeState);
+  const toggleDarkMode = useSetRecoilState(toggleDarkModeState);
+
   const router = useRouter();
   const [token, setToken] = useState("");
   const [search, setSearch] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
+  // const [filteredData, setFilteredData] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
   const handleInputChange = (event) => {
@@ -42,18 +47,18 @@ export default function Homepage() {
   const { playlistId } = useState(null);
 
   const { data, isPending, error } = useFetch(
-    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=50&key=${process.env.customKey}`
+    `${process.env.youtubeLink}playlists?part=snippet&channelId=${process.env.channelId}&maxResults=9&key=${process.env.customKey}`
   );
 
-  useEffect(() => {
-    if (data) {
-      setFilteredData(
-        data.filter((item) =>
-          item.snippet.title.toLowerCase().includes(search.toLowerCase())
-        )
-      );
-    }
-  }, [data, search]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setFilteredData(
+  //       data.filter((item) =>
+  //         item.snippet.title.toLowerCase().includes(search.toLowerCase())
+  //       )
+  //     );
+  //   }
+  // }, [data, search]);
 
   if (isPending) {
     return <div className="loading"></div>;
@@ -92,25 +97,38 @@ export default function Homepage() {
         <meta name="description" content="Login in with our App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div></div>
-      <main className={styles.container}>
+      <main
+        className={styles.container}
+        style={{ backgroundColor: isDarkModeEnabaled ? " #434141" : "white" }}
+      >
         <div className={styles.searchBar}>
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={handleInputChange}
-          />
-          <ul className={styles.suggestions}>
-            {suggestions.map((item) => (
-              <li
-                key={item.id}
-                onClick={() => ViewPlaylist(item.id, item.snippet.title)}
-              >
-                <span>{item.snippet.title}</span>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <input
+              className={styles.handleChange}
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={handleInputChange}
+            />
+            <ul className={styles.suggestions}>
+              {suggestions.map((item) => (
+                <li
+                  key={item.id}
+                  onClick={() => ViewPlaylist(item.id, item.snippet.title)}
+                >
+                  <span>{item.snippet.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.mode}>
+            <input
+              className={styles.darkMode}
+              type="checkbox"
+              value={isDarkModeEnabaled}
+              onChange={toggleDarkMode}
+            />
+          </div>
         </div>
         <div className={styles.wrapper}>
           <div className={styles.heading}>
@@ -120,14 +138,16 @@ export default function Homepage() {
               channel MR.whosetheboss.
             </p>
             <div className={styles.nav}>
-              <button onClick={handleLogout}>Logout</button>
+              <button value={toggleDarkMode} onClick={handleLogout}>
+                Logout
+              </button>
             </div>
           </div>
           {playlistId ? (
             playlistId && <Items playlistId={playlistId} />
           ) : (
             <div className={styles.playlistsWrapper}>
-              {filteredData.map((item) => (
+              {data.map((item) => (
                 <div
                   className={styles.playlists}
                   key={item.id}

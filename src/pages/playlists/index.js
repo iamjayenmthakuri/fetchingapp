@@ -3,8 +3,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import useFetch from "@/components/useFetch";
 import styles from "../playlists/playlist.module.css";
+import { useRecoilValue } from "recoil";
+import { darkModeState } from "@/components/gobalState";
 
 const Items = (props) => {
+  const isDarkModeEnabaled = useRecoilValue(darkModeState);
   const router = useRouter();
 
   const handlePrevious = () => {
@@ -44,7 +47,10 @@ const Items = (props) => {
   }
 
   return (
-    <main>
+    <main
+      className={styles.container}
+      style={{ backgroundColor: isDarkModeEnabaled ? " #434141" : "white" }}
+    >
       <div className={styles.wrapper}>
         <div className={styles.heading}>
           <h1>{title}</h1>
