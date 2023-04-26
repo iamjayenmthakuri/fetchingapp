@@ -43,6 +43,11 @@ export default function Homepage() {
       setToken(storedToken);
     }
   }, [router]);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    console.log(token, "remove");
+    window.location.href = "/";
+  };
 
   const { playlistId } = useState(null);
 
@@ -83,11 +88,6 @@ export default function Homepage() {
       pathname: `playlists/${id}`,
       query: { title },
     });
-  };
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    console.log(token, "remove");
-    window.location.href = "/";
   };
 
   return (
